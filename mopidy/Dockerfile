@@ -17,6 +17,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
         python3-pip \
         python3-setuptools \
         python3-wheel \
+        python-crypto \
         gstreamer1.0-alsa \
         gstreamer1.0-plugins-bad \
         sudo &&\
