@@ -1,6 +1,6 @@
 {
   "name": "Mopidy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "slug": "mopidy",
   "panel_icon": "mdi:music-circle",
   "description": "Mopidy Music Server (V-Version)",
@@ -24,7 +24,8 @@
   "map": ["share:rw"],
   "ports": {
     "6680/tcp": 6680,
-    "6600/tcp": 6600
+    "6600/tcp": 6600,
+	"8000/tcp": 8000
   },
   "ports_description": {
     "6680/tcp": "Web Frontend",
