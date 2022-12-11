@@ -4,7 +4,7 @@
   "slug": "mopidy",
   "panel_icon": "mdi:music-circle",
   "description": "Mopidy Music Server (V-Version)",
-  "url": "https://github.com/v1-valux/Hassio-Addons/tree/master/mopidy",
+  "url": "https://github.com/v1-valux/ha-addons/tree/master/mopidy",
   "webui": "http://[HOST]:[PORT:6680]/iris",
   "ingress": true,
   "ingress_port": 6680,
