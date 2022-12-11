@@ -2,7 +2,6 @@ ARG BUILD_FROM
 FROM $BUILD_FROM
 
 ENV MOPIDY_VERSION='3.3.0-1'
-ENV YOUTUBEDL_VERSION='2021.12.17'
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
@@ -13,6 +12,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
     apt-get update &&\
     apt-get -y --no-install-recommends install \
         mopidy=${MOPIDY_VERSION} \
+		icecast2 \
         jq \
         python3-pip \
         python3-setuptools \
@@ -32,6 +32,8 @@ RUN pip3 install https://github.com/natumbri/mopidy-youtube/archive/develop.zip
 RUN echo "mopidy ALL=NOPASSWD: /usr/local/lib/python3.9/dist-packages/mopidy_iris/system.sh" >> /etc/sudoers
 
 COPY mopidy.conf /share/mopidy/mopidy.conf
+COPY icecast2.xml /etc/icecast2/icecast2.xml
+COPY silence.mp3 /usr/share/icecast2/web/silence.mp3
 
 COPY run.sh /
 RUN chmod a+x /run.sh
