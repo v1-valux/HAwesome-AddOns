@@ -12,7 +12,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
     apt-get update &&\
     apt-get -y --no-install-recommends install \
         mopidy=${MOPIDY_VERSION} \
-	    icecast2 \
+        icecast2 \
         jq \
         python3-pip \
         python3-setuptools \
