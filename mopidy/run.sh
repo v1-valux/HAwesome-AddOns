@@ -17,4 +17,5 @@ bashio::log.info 'Start Mopidy....'
 if  [ "$local_scan" == "true" ]; then
     mopidy --config "$config" "$options" local scan
 fi
+icecast2 -c /etc/icecast2/icecast2.xml
 mopidy --config "$config" "$options"
