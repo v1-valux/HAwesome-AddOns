@@ -43,4 +43,4 @@ COPY run.sh /
 RUN chmod a+x /run.sh
 
 EXPOSE 6600 6680
-CMD [ "service icecast start && /run.sh" ]
+CMD echo service icecast2 start;echo /run.sh
