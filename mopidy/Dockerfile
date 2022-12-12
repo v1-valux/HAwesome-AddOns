@@ -6,8 +6,7 @@ ENV MOPIDY_VERSION='3.3.0-1'
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
     mkdir -p /usr/local/share/keyrings/ &&\
-    wget -q -O /usr/local/share/keyrings/multimedia-obs.key \
-    http://icecast.org/multimedia-obs.key &&\
+    wget -qO - http://icecast.org/multimedia-obs.key | apt-key add - &&\
     wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
     https://apt.mopidy.com/mopidy.gpg &&\
     sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/Debian_10/ ./ >> /etc/apt/sources.list" &&\
