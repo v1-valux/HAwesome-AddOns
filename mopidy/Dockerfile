@@ -6,7 +6,7 @@ ENV MOPIDY_VERSION='3.3.0-1'
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
     mkdir -p /usr/local/share/keyrings/ &&\
-    wget -qO - http://icecast.org/multimedia-obs.key | apt-key add -
+    wget -qO - http://icecast.org/multimedia-obs.key | apt-key add - &&\
     sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/Debian_10/ ./ >> /etc/apt/sources.list" &&\
 	sed '1h;1d;$!H;$!d;G' /etc/apt/sources.list &&\
 	wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
         icecast2=2.4.4-1 \
         jq=1.5+dfsg-2+b1 \
 		python3-pip \
-        python3-setuptools= \
+        python3-setuptools \
         python3-wheel \
         python-crypto=2.6.1-9 \
         gstreamer1.0-alsa=1.14.4-2 \
