@@ -6,11 +6,12 @@ ENV MOPIDY_VERSION='3.3.0-1'
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
     mkdir -p /usr/local/share/keyrings/ &&\
-    wget -qO - http://icecast.org/multimedia-obs.key | apt-key add - &&\
+    wget -q -O /usr/local/share/keyrings/multimedia-obs.key \
+    http://icecast.org/multimedia-obs.key &&\
+    wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
+    https://apt.mopidy.com/mopidy.gpg &&\
     sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/Debian_10/ ./ >> /etc/apt/sources.list" &&\
 	sed '1h;1d;$!H;$!d;G' /etc/apt/sources.list &&\
-	wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
-    https://apt.mopidy.com/mopidy.gpg &&\
     wget -q -O /etc/apt/sources.list.d/mopidy.list "https://apt.mopidy.com/buster.list" &&\
     apt-get update &&\
     apt-get -y --no-install-recommends install \
@@ -20,9 +21,9 @@ RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
 		python3-pip \
         python3-setuptools \
         python3-wheel \
-        python-crypto=2.6.1-9 \
-        gstreamer1.0-alsa=1.14.4-2 \
-        gstreamer1.0-plugins-bad=1.14.4-1 \
+        python-crypto \
+        gstreamer1.0-alsa \
+        gstreamer1.0-plugins-bad \
         sudo &&\
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
