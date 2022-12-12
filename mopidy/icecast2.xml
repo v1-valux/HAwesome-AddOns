@@ -2,7 +2,7 @@
     <!-- location and admin are two arbitrary strings that are e.g. visible
          on the server info page of the icecast web interface
          (server_version.xsl). -->
-    <location>Earth</location>
+    <location>Gazorpazorp</location>
     <admin>icecast@localhost</admin>
 
     <!-- IMPORTANT!
@@ -67,7 +67,7 @@
     <listen-socket>
         <port>8000</port>
         <bind-address>0.0.0.0</bind-address>
-        <shoutcast-mount>/mopidy</shoutcast-mount>
+        <shoutcast-mount>/voix</shoutcast-mount>
     </listen-socket>
     <!--
     <listen-socket>
@@ -128,7 +128,7 @@
     -->
 	
     <mount>
-        <mount-name>/mopidy</mount-name>
+        <mount-name>/voix</mount-name>
         <fallback-mount>/silence.mp3</fallback-mount>
         <fallback-override>1</fallback-override>
     </mount>
