@@ -6,20 +6,23 @@ ENV MOPIDY_VERSION='3.3.0-1'
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN apt-get update && apt-get -y --no-install-recommends install wget gnupg &&\
     mkdir -p /usr/local/share/keyrings/ &&\
-    wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
+    wget -qO - http://icecast.org/multimedia-obs.key | apt-key add -
+    sh -c "echo deb http://download.opensuse.org/repositories/multimedia:/xiph/Debian_10/ ./ >> /etc/apt/sources.list" &&\
+	sed '1h;1d;$!H;$!d;G' /etc/apt/sources.list &&\
+	wget -q -O /usr/local/share/keyrings/mopidy-archive-keyring.gpg \
     https://apt.mopidy.com/mopidy.gpg &&\
     wget -q -O /etc/apt/sources.list.d/mopidy.list "https://apt.mopidy.com/buster.list" &&\
     apt-get update &&\
     apt-get -y --no-install-recommends install \
         mopidy=${MOPIDY_VERSION} \
-        icecast2 \
-        jq \
-        python3-pip \
-        python3-setuptools \
+        icecast2=2.4.4-1 \
+        jq=1.5+dfsg-2+b1 \
+		python3-pip \
+        python3-setuptools= \
         python3-wheel \
-        python-crypto \
-        gstreamer1.0-alsa \
-        gstreamer1.0-plugins-bad \
+        python-crypto=2.6.1-9 \
+        gstreamer1.0-alsa=1.14.4-2 \
+        gstreamer1.0-plugins-bad=1.14.4-1 \
         sudo &&\
     apt-get -y autoremove && apt-get clean && rm -rf /var/lib/apt/lists/*
 
