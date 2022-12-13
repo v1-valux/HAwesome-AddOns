@@ -10,7 +10,7 @@ mkdir -p /share/mopidy/playlists
 
 bashio::log.info 'Create Snapcast Stream'
 mkdir -p /share/snapcast/
-chown mopidy /share/snapcast/mopidy.stream
+chown mopidy /share/snapcast/
 
 bashio::log.info 'Setup config'
 local_scan=$(cat /data/options.json | jq -r '.local_scan // empty')
