@@ -1,6 +1,6 @@
 {
   "name": "Mopicast",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "slug": "mopicast",
   "panel_icon": "mdi:music-circle",
   "description": "Mopidy Music Streaming Server",
