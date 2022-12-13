@@ -1,9 +1,9 @@
 {
-  "name": "Mopidy",
-  "version": "1.0.1",
-  "slug": "mopidy",
+  "name": "Mopicast",
+  "version": "1.1.0",
+  "slug": "mopicast",
   "panel_icon": "mdi:music-circle",
-  "description": "Mopidy Music Server (V-Version)",
+  "description": "<Mopidy Music Streaming Server",
   "url": "https://github.com/v1-valux/ha-addons/tree/master/mopidy",
   "webui": "http://[HOST]:[PORT:6680]/iris",
   "ingress": true,
@@ -29,7 +29,8 @@
   },
   "ports_description": {
     "6680/tcp": "Web Frontend",
-    "6600/tcp": "MDP Connection"
+    "6600/tcp": "MDP Connection",
+    "8000/tcp": "Icecast Connection"
   },
   "options": {
     "local_scan": true,

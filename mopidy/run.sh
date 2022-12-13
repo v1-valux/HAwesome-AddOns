@@ -13,10 +13,10 @@ local_scan=$(cat /data/options.json | jq -r '.local_scan // empty')
 options=$(cat /data/options.json | jq -r 'if .options then [.options[] | "-o "+.name+"="+.value ] | join(" ") else "" end')
 config="/share/mopidy/mopidy.conf"
 
+
+sudo -E -u icecast2 bash -c "icecast2 -b -c /etc/icecast2/icecast.xml"
 bashio::log.info 'Start Mopidy....'
 if  [ "$local_scan" == "true" ]; then
-    sudo -E -u icecast2 bash -c "icecast2 -b -c /etc/icecast2/icecast.xml"
     mopidy --config "$config" "$options" local scan
 fi
-sudo -E -u icecast2 bash -c "icecast2 -b -c /etc/icecast2/icecast.xml"
-mopidy --config "$config" "$options" local scan
+mopidy --config "$config" "$options"
