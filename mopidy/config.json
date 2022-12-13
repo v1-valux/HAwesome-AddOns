@@ -1,9 +1,9 @@
 {
   "name": "Mopicast",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "slug": "mopicast",
   "panel_icon": "mdi:music-circle",
-  "description": "<Mopidy Music Streaming Server",
+  "description": "Mopidy Music Streaming Server",
   "url": "https://github.com/v1-valux/ha-addons/tree/master/mopidy",
   "webui": "http://[HOST]:[PORT:6680]/iris",
   "ingress": true,
