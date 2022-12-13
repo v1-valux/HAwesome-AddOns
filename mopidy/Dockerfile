@@ -35,7 +35,7 @@ RUN pip3 install https://github.com/natumbri/mopidy-youtube/archive/develop.zip
 # Let mopidy run local scans
 RUN echo "mopidy ALL=NOPASSWD: /usr/local/lib/python3.9/dist-packages/mopidy_iris/system.sh" >> /etc/sudoers
 
-COPY mopidy.conf /share/mopidy/
+COPY mopidy.conf /share/mopidy/mopidy.conf
 COPY icecast.xml /etc/icecast2/
 COPY silence.mp3 /usr/share/icecast2/web/silence.mp3
 
